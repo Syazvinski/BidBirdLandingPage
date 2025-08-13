@@ -1,4 +1,4 @@
-export const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://bidbird.yazvinski.com/api/v3.1';
+export const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://api.bidbird.ai/api/v3.1';
 
 export type RFPSearchRequest = {
   query: string;
@@ -54,4 +54,3 @@ export async function publicRFPDetail(rfp_id: string): Promise<any> {
   if (!res.ok) throw new Error(await res.text());
   return res.json();
 }
-

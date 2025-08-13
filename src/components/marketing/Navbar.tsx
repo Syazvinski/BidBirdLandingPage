@@ -14,7 +14,6 @@ export default function Navbar() {
           </Link>
           <nav className="hidden md:flex items-center gap-8 text-sm">
             <Link to="/" className="text-gray-600 hover:text-gray-900">Home</Link>
-            <Link to="/search" className="text-gray-600 hover:text-gray-900">Search</Link>
           </nav>
           <div className="flex items-center gap-2">
             <a href={APP_BASE + 'login'} className="hidden sm:inline-block px-4 py-2 text-sm font-medium text-primary hover:text-primary-dark">Sign in</a>

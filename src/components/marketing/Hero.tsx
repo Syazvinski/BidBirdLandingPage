@@ -16,9 +16,6 @@ export default function Hero() {
               <a href={APP_BASE + 'register'} className="inline-flex items-center rounded-md bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark">
                 Get started free
               </a>
-              <Link to="/search" className="inline-flex items-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
-                Try the search
-              </Link>
             </div>
             <p className="mt-4 text-sm text-gray-500">No credit card required.</p>
           </div>
@@ -39,38 +36,10 @@ export default function Hero() {
             </div>
           </div>
         </div>
-        {/* Inline search bar */}
-        <div className="mt-10">
-          <HomeSearchBar />
-          <p className="mt-1 text-xs text-gray-500">Search is free — no account needed.</p>
-        </div>
+        {/* Search removed from landing page */}
       </div>
     </section>
   );
 }
 
-import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-
-function HomeSearchBar() {
-  const [q, setQ] = useState('');
-  const navigate = useNavigate();
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!q.trim()) return;
-    navigate(`/search?q=${encodeURIComponent(q.trim())}&page=1`);
-  };
-  return (
-    <form onSubmit={onSubmit} className="max-w-3xl">
-      <div className="flex gap-2">
-        <input
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          placeholder="Try: cybersecurity, facilities maintenance, healthcare staffing…"
-          className="flex-1 px-3 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
-        />
-        <button className="inline-flex items-center rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark">Search</button>
-      </div>
-    </form>
-  );
-}
+// Search and demo controls removed from landing page

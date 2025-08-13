@@ -5,7 +5,6 @@ import ValueProps from './components/marketing/ValueProps';
 import CTA from './components/marketing/CTA';
 import Footer from './components/marketing/Footer';
 import { Routes, Route } from 'react-router-dom';
-import SearchPage from './pages/Search';
 import PricingSection from './components/marketing/PricingSection';
 import SocialProofSection from './components/marketing/SocialProofSection';
 
@@ -79,7 +78,6 @@ export default function App() {
       <main className="pt-16">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/search" element={<SearchPage />} />
         </Routes>
       </main>
       <Footer />
