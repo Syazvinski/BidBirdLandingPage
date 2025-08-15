@@ -32,10 +32,9 @@ export default function PricingSection() {
               <span className="inline-flex items-center rounded-full bg-primary/10 text-primary px-2.5 py-0.5 text-xs font-medium">Best value</span>
             </div>
             <div className="mt-2 flex items-end gap-2">
-              <div className="text-4xl font-bold text-gray-900">$99</div>
+              <div className="text-4xl font-bold text-gray-900">$149</div>
               <div className="text-sm text-gray-600">/ month</div>
             </div>
-            <div className="text-sm text-gray-500 line-through">$149 / month</div>
             <p className="mt-3 text-gray-600">Everything you need to find and qualify the right RFPs.</p>
 
             <ul className="mt-5 space-y-2 text-sm text-gray-700">

@@ -4,6 +4,7 @@ type Feature = {
   icon: ReactNode;
   title: string;
   description: string;
+  videoSrc?: string;
 };
 
 export default function FeatureGrid() {
@@ -24,7 +25,8 @@ export default function FeatureGrid() {
         </svg>
       ),
       title: 'Structured RFP summaries',
-      description: 'We parse long RFPs into key facts: scope, requirements, deadlines, set-asides, NAICS/PSC, budget, and evaluation criteria.'
+      description: 'We parse long RFPs into key facts: scope, requirements, deadlines, set-asides, NAICS/PSC, budget, and evaluation criteria.',
+      videoSrc: '/summaries.mp4'
     },
     {
       icon: (
@@ -33,7 +35,8 @@ export default function FeatureGrid() {
         </svg>
       ),
       title: 'Best-in-class AI matching',
-      description: 'Not simple keywords—real large models evaluate fit using your capabilities and RFP content for exceptional match quality.'
+      description: 'Not simple keywords—real large models evaluate fit using your capabilities and RFP content for exceptional match quality.',
+      videoSrc: '/ai_matching.mp4'
     },
     {
       icon: (
@@ -42,17 +45,8 @@ export default function FeatureGrid() {
         </svg>
       ),
       title: 'Auto capability statement',
-      description: 'Provide your business name and we build a polished capability statement we use to power matching and materials.'
-    },
-    {
-      icon: (
-        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <rect x="3" y="6" width="18" height="12" rx="2" />
-          <path d="M7 10h10M7 14h6" />
-        </svg>
-      ),
-      title: 'RFP writer',
-      description: 'Draft accurate, tailored responses quickly using your capability statement and the RFP’s structured data.'
+      description: 'Provide your business name and we build a polished capability statement we use to power matching and materials.',
+      videoSrc: '/capability.mp4'
     },
     {
       icon: (
@@ -61,7 +55,19 @@ export default function FeatureGrid() {
         </svg>
       ),
       title: 'Simple pursuit workflow',
-      description: 'Approve high-fit matches, bookmark, and collaborate in a focused pipeline—no sprawling spreadsheets.'
+      description: 'Approve high-fit matches, bookmark, and collaborate in a focused pipeline—no sprawling spreadsheets.',
+      videoSrc: '/like_dislike.mp4'
+    },
+    {
+      icon: (
+        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <rect x="3" y="6" width="18" height="12" rx="2" />
+          <path d="M7 10h10M7 14h6" />
+        </svg>
+      ),
+      title: 'Search that finds the signal',
+      description: 'Intent-aware search with smart filters and synonyms to surface relevant results fast.',
+      videoSrc: '/search.mp4'
     },
   ];
 
@@ -80,9 +86,24 @@ export default function FeatureGrid() {
               </div>
               <h3 className="mt-4 text-lg font-semibold text-gray-900">{f.title}</h3>
               <p className="mt-2 text-sm text-gray-600">{f.description}</p>
-              <div className="mt-4 aspect-[16/10] rounded-md border-2 border-dashed border-gray-200 bg-gray-50 text-gray-500 flex items-center justify-center text-xs">
-                Placeholder for GIF / demo
-              </div>
+              {f.videoSrc ? (
+                <div className="mt-4 aspect-[16/10] w-full overflow-hidden rounded-md bg-black">
+                  <video
+                    src={f.videoSrc}
+                    className="h-full w-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              ) : (
+                <div className="mt-4 aspect-[16/10] rounded-md border-2 border-dashed border-gray-200 bg-gray-50 text-gray-500 flex items-center justify-center text-xs">
+                  Placeholder for GIF / demo
+                </div>
+              )}
             </div>
           ))}
         </div>
