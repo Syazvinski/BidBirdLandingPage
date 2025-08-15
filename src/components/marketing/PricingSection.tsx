@@ -17,8 +17,6 @@ export default function PricingSection() {
             </div>
             <div className="text-gray-800">
               <span className="font-medium">Premium:</span> 30-day money-back guarantee.
-              <span className="mx-2 hidden md:inline text-gray-300">|</span>
-              <span className="block md:inline"><span className="font-medium">Basic:</span> 7-day free trial (card required), we email a reminder before renewal.</span>
             </div>
           </div>
         </div>
@@ -67,7 +65,7 @@ export default function PricingSection() {
               <li className="flex items-start gap-2 text-gray-500"><span className="mt-0.5">•</span> Matching and capability statement not included</li>
             </ul>
 
-            <p className="mt-5 text-sm text-gray-700"><span className="font-medium text-primary">Try first:</span> 7-day free trial. Card required; reminder email before renewal.</p>
+            {/* Removed trial messaging per request */}
 
             <a
               href={APP_BASE + 'register'}
