@@ -10,7 +10,7 @@ export default function ScrollingTimeline() {
   const features: Feature[] = useMemo(
     () => [
       {
-        title: 'Powerful Bid Bird search',
+        title: 'Powerful search',
         description:
           'Find exactly what you need fast with smart filters, synonyms, and intent-aware queries across federal and state data—no noise, just relevant results.',
         videoSrc: '/search.mp4',
@@ -18,19 +18,19 @@ export default function ScrollingTimeline() {
       {
         title: 'Structured RFP summaries',
         description:
-          'We parse long RFPs into key facts: scope, requirements, deadlines, set-asides, NAICS/PSC, budget, and evaluation criteria.',
+          'We parse tens of thousands of multi-page RFPs into key facts: scope, requirements, deadlines, set-asides, NAICS/PSC, budget, and evaluation criteria.',
         videoSrc: '/summaries.mp4',
       },
       {
         title: 'Best-in-class AI matching',
         description:
-          'Not simple keywords—real large models evaluate fit using your capabilities and RFP content for exceptional match quality.',
+          'Not simple keywords—real large models evaluate fit by understanding your capabilities to find you the right contracts.',
         videoSrc: '/ai_matching.mp4',
       },
       {
         title: 'Auto capability statement',
         description:
-          'Provide your business name and we build a polished capability statement we use to power matching and materials.',
+          'Provide your business name and our AI-powered search will build a polished capability statement we use to power matching and materials.',
         videoSrc: '/capability.mp4',
       },
       {
