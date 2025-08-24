@@ -13,7 +13,9 @@ export default function Navbar() {
             <span className="text-primary font-semibold text-lg tracking-tight">Bid Bird</span>
           </Link>
           <nav className="hidden md:flex items-center gap-8 text-sm">
-            <Link to="/" className="text-gray-600 hover:text-gray-900">Home</Link>
+            <a href="#features" className="text-gray-600 hover:text-gray-900">Demo</a>
+            <a href="#benefits" className="text-gray-600 hover:text-gray-900">Why BidBird</a>
+            <a href="#pricing" className="text-gray-600 hover:text-gray-900">Pricing</a>
           </nav>
           <div className="flex items-center gap-2">
             <a href={APP_BASE + 'login'} className="hidden sm:inline-block px-4 py-2 text-sm font-medium text-primary hover:text-primary-dark">Sign in</a>

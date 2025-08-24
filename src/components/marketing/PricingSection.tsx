@@ -21,9 +21,9 @@ export default function PricingSection() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col md:flex-row items-stretch justify-center gap-6 md:gap-8">
+        <div className="mt-10 flex flex-col lg:flex-row items-stretch justify-center gap-6 md:gap-8">
           {/* Premium */}
-          <div className="relative w-full md:w-auto md:max-w-[20rem] lg:max-w-[18rem] rounded-2xl border border-primary/25 bg-white p-6 md:p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col min-h-[480px]">
+          <div className="relative w-full lg:w-auto lg:max-w-[18rem] rounded-2xl border border-primary/25 bg-white p-6 md:p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col min-h-[480px]">
             <span className="absolute -top-3 left-4 inline-flex items-center rounded-full bg-primary text-white px-3 py-1 text-xs font-medium shadow-sm">Limited-time</span>
             <div className="flex items-start justify-between gap-3">
               <h3 className="text-xl font-semibold text-gray-900">Premium</h3>
@@ -43,16 +43,24 @@ export default function PricingSection() {
 
             <p className="mt-5 text-sm text-gray-700"><span className="font-medium text-primary">Risk-free:</span> 30-day money-back guarantee.</p>
 
-            <a
-              href={APP_BASE + 'register'}
-              className="mt-auto inline-flex w-full items-center justify-center rounded-md bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark"
-            >
-              Start Premium
-            </a>
+            <div className="mt-auto space-y-3">
+              <button
+                onClick={() => window.open('https://calendly.com/jonathanli19975', '_blank')}
+                className="inline-flex w-full items-center justify-center rounded-md border border-primary text-primary px-5 py-3 text-sm font-semibold hover:bg-primary/5"
+              >
+                Book Demo First
+              </button>
+              <a
+                href={APP_BASE + 'register'}
+                className="inline-flex w-full items-center justify-center rounded-md bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark"
+              >
+                Start Premium
+              </a>
+            </div>
           </div>
 
           {/* Basic */}
-          <div className="w-full md:w-auto md:max-w-[20rem] lg:max-w-[18rem] rounded-2xl border border-gray-200 p-6 md:p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col min-h-[480px]">
+          <div className="w-full lg:w-auto lg:max-w-[18rem] rounded-2xl border border-gray-200 p-6 md:p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col min-h-[480px]">
             <h3 className="text-xl font-semibold text-gray-900">Basic</h3>
             <div className="mt-2 flex items-end gap-2">
               <div className="text-4xl font-bold text-gray-900">$9.99</div>
@@ -67,12 +75,46 @@ export default function PricingSection() {
 
             {/* Removed trial messaging per request */}
 
-            <a
-              href={APP_BASE + 'register'}
-              className="mt-auto inline-flex w-full items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50"
-            >
-              Start Basic
-            </a>
+            <div className="mt-auto space-y-3">
+              <button
+                onClick={() => window.open('https://calendly.com/jonathanli19975', '_blank')}
+                className="inline-flex w-full items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+              >
+                Book Demo
+              </button>
+              <a
+                href={APP_BASE + 'register'}
+                className="inline-flex w-full items-center justify-center rounded-md bg-gray-900 px-5 py-3 text-sm font-semibold text-white hover:bg-gray-800"
+              >
+                Start Basic
+              </a>
+            </div>
+          </div>
+
+          {/* Enterprise */}
+          <div className="w-full lg:w-auto lg:max-w-[18rem] rounded-2xl border border-gray-200 p-6 md:p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col min-h-[480px]">
+            <h3 className="text-xl font-semibold text-gray-900">Enterprise</h3>
+            <div className="mt-2 flex items-end gap-2">
+              <div className="text-4xl font-bold text-gray-900">Custom</div>
+            </div>
+            <p className="mt-3 text-gray-600">For large teams and organizations with custom requirements.</p>
+
+            <ul className="mt-5 space-y-2 text-sm text-gray-700">
+              <li className="flex items-start gap-2"><span className="mt-0.5 text-accent">•</span> Everything in Premium</li>
+              <li className="flex items-start gap-2"><span className="mt-0.5 text-accent">•</span> Dedicated account manager</li>
+              <li className="flex items-start gap-2"><span className="mt-0.5 text-accent">•</span> Custom integrations</li>
+              <li className="flex items-start gap-2"><span className="mt-0.5 text-accent">•</span> Advanced reporting & analytics</li>
+              <li className="flex items-start gap-2"><span className="mt-0.5 text-accent">•</span> Priority support</li>
+            </ul>
+
+            <div className="mt-auto space-y-3">
+              <button
+                onClick={() => window.open('https://calendly.com/jonathanli19975', '_blank')}
+                className="inline-flex w-full items-center justify-center rounded-md bg-gray-900 px-5 py-3 text-sm font-semibold text-white hover:bg-gray-800"
+              >
+                Contact Sales
+              </button>
+            </div>
           </div>
         </div>
 
