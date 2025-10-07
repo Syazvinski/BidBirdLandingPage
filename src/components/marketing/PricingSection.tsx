@@ -45,7 +45,7 @@ export default function PricingSection() {
 
             <div className="mt-auto space-y-3">
               <button
-                onClick={() => window.open('https://calendly.com/jonathanli19975', '_blank')}
+                onClick={() => window.open('https://app.simplymeet.me/bidbird/bidbird-30-1759797870966', '_blank')}
                 className="inline-flex w-full items-center justify-center rounded-md border border-primary text-primary px-5 py-3 text-sm font-semibold hover:bg-primary/5"
               >
                 Book Demo First
@@ -77,7 +77,7 @@ export default function PricingSection() {
 
             <div className="mt-auto space-y-3">
               <button
-                onClick={() => window.open('https://calendly.com/jonathanli19975', '_blank')}
+                onClick={() => window.open('https://app.simplymeet.me/bidbird/bidbird-30-1759797870966', '_blank')}
                 className="inline-flex w-full items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50"
               >
                 Book Demo
@@ -109,7 +109,7 @@ export default function PricingSection() {
 
             <div className="mt-auto space-y-3">
               <button
-                onClick={() => window.open('https://calendly.com/jonathanli19975', '_blank')}
+                onClick={() => window.open('https://app.simplymeet.me/bidbird/bidbird-30-1759797870966', '_blank')}
                 className="inline-flex w-full items-center justify-center rounded-md bg-gray-900 px-5 py-3 text-sm font-semibold text-white hover:bg-gray-800"
               >
                 Contact Sales

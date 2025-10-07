@@ -68,7 +68,7 @@ export default function InteractiveFeatureShowcase() {
             {/* Prominent CTAs */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <button
-                onClick={() => window.open('https://calendly.com/jonathanli19975', '_blank')}
+                onClick={() => window.open('https://app.simplymeet.me/bidbird/bidbird-30-1759797870966', '_blank')}
                 className="inline-flex items-center rounded-md bg-gradient-to-r from-orange-500 to-yellow-500 px-8 py-4 text-base font-semibold text-white shadow-lg hover:from-orange-600 hover:to-yellow-600 transition-all duration-200 transform hover:scale-105"
               >
                 Book a Demo
