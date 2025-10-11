@@ -1,8 +1,16 @@
 import { CheckCircle, Calendar, Clock, Mail, ArrowRight } from 'lucide-react';
+import { useEffect } from 'react';
 
 const APP_BASE = import.meta.env.VITE_APP_BASE_URL || 'https://app.bidbird.ai/';
 
 export default function BookingConfirmation() {
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'page_view', {
+        page_path: '/booking-confirmation',
+      });
+    }
+  }, []);
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center px-4 pt-16">
       <div className="max-w-2xl w-full">
