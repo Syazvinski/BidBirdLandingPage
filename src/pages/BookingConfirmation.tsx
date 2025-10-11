@@ -6,9 +6,7 @@ const APP_BASE = import.meta.env.VITE_APP_BASE_URL || 'https://app.bidbird.ai/';
 export default function BookingConfirmation() {
   useEffect(() => {
     if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'page_view', {
-        page_path: '/booking-confirmation',
-      });
+      (window as any).gtag('event', 'conversion', { send_to: 'AW-17630560143/affkCPaUnqsbEI__89ZB' });
     }
   }, []);
   return (
