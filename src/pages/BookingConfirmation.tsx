@@ -1,7 +1,7 @@
 import { CheckCircle, Calendar, Clock, Mail, ArrowRight } from 'lucide-react';
 import { useEffect } from 'react';
 
-const APP_BASE = import.meta.env.VITE_APP_BASE_URL || 'https://app.bidbird.ai/';
+const APP_BASE = import.meta.env.VITE_APP_BASE_URL || 'https://bidbird.ai/';
 
 export default function BookingConfirmation() {
   useEffect(() => {
