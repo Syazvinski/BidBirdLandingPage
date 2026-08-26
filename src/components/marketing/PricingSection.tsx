@@ -1,124 +1,79 @@
+import { ArrowRight, Check } from 'lucide-react';
+
 const APP_BASE = import.meta.env.VITE_APP_BASE_URL || 'https://app.bidbird.ai/';
+const DEMO_URL = 'https://calendar.app.google/xpkVTmZKzpyx3ZMMA';
+
+const plans = [
+  {
+    name: 'Basic',
+    price: '$9.99',
+    cadence: '/ month',
+    description: 'Core access for straightforward opportunity discovery.',
+    features: ['Aggregated government RFP database', 'Federal and state opportunity search'],
+    action: 'Start Basic',
+    href: `${APP_BASE}register`,
+  },
+  {
+    name: 'Premium',
+    price: '$149',
+    cadence: '/ month',
+    description: 'The complete BidBird workflow for finding and qualifying the right RFPs.',
+    features: ['Advanced government contract search', 'AI matching to your capabilities', 'Capability statement generation', '30-day money-back guarantee'],
+    action: 'Start Premium',
+    href: `${APP_BASE}register`,
+    featured: true,
+  },
+  {
+    name: 'Enterprise',
+    price: 'Custom',
+    cadence: '',
+    description: 'A tailored setup for larger teams and custom requirements.',
+    features: ['Everything in Premium', 'Dedicated account manager', 'Custom integrations', 'Priority support'],
+    action: 'Contact sales',
+    href: DEMO_URL,
+  },
+];
 
 export default function PricingSection() {
   return (
-    <section id="pricing" className="py-20 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900">Simple pricing</h2>
-          <p className="mt-3 text-gray-600">Pick the plan that fits. Cancel anytime.</p>
-        </div>
-
-        {/* Risk reversal panel (subtle, clear) */}
-        <div className="mt-6 rounded-xl border border-gray-200 bg-white p-4 md:p-5">
-          <div className="flex items-start gap-3 justify-center text-sm md:text-base">
-            <div className="h-6 w-6 flex items-center justify-center rounded-full bg-primary/10 text-primary flex-shrink-0">
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 3l7 4v5c0 5-3.5 9-7 9s-7-4-7-9V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
-            </div>
-            <div className="text-gray-800">
-              <span className="font-medium">Premium:</span> 30-day money-back guarantee.
-            </div>
+    <section id="pricing" className="bg-[#ebe9e2] px-4 py-20 sm:px-6 sm:py-28 lg:py-36">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid items-end gap-8 lg:grid-cols-2" data-reveal>
+          <div>
+            <p className="section-kicker">Simple pricing</p>
+            <h2 className="mt-4 text-[clamp(2.8rem,5vw,5rem)] font-semibold leading-[.98] tracking-[-0.055em] text-[#10213f]">Start lean. Scale when the wins do.</h2>
           </div>
+          <p className="max-w-xl text-base leading-7 text-[#657087] lg:justify-self-end lg:text-lg">Choose the level of opportunity intelligence your team needs today. Every plan is billed monthly and can be canceled anytime.</p>
         </div>
 
-        <div className="mt-10 flex flex-col lg:flex-row items-stretch justify-center gap-6 md:gap-8">
-          {/* Premium */}
-          <div className="relative w-full lg:w-auto lg:max-w-[18rem] rounded-2xl border border-primary/25 bg-white p-6 md:p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col min-h-[480px]">
-            <span className="absolute -top-3 left-4 inline-flex items-center rounded-full bg-primary text-white px-3 py-1 text-xs font-medium shadow-sm">Limited-time</span>
-            <div className="flex items-start justify-between gap-3">
-              <h3 className="text-xl font-semibold text-gray-900">Premium</h3>
-              <span className="inline-flex items-center rounded-full bg-primary/10 text-primary px-2.5 py-0.5 text-xs font-medium">Best value</span>
-            </div>
-            <div className="mt-2 flex items-end gap-2">
-              <div className="text-4xl font-bold text-gray-900">$149</div>
-              <div className="text-sm text-gray-600">/ month</div>
-            </div>
-            <p className="mt-3 text-gray-600">Everything you need to find and qualify the right RFPs.</p>
-
-            <ul className="mt-5 space-y-2 text-sm text-gray-700">
-              <li className="flex items-start gap-2"><span className="mt-0.5 text-accent">•</span> Advanced search through RFPs</li>
-              <li className="flex items-start gap-2"><span className="mt-0.5 text-accent">•</span> AI matching to RFPs</li>
-              <li className="flex items-start gap-2"><span className="mt-0.5 text-accent">•</span> Capability statement generation</li>
-            </ul>
-
-            <p className="mt-5 text-sm text-gray-700"><span className="font-medium text-primary">Risk-free:</span> 30-day money-back guarantee.</p>
-
-            <div className="mt-auto space-y-3">
-              <button
-                onClick={() => window.open('https://app.simplymeet.me/bidbird/bidbird-30-1759797870966', '_blank')}
-                className="inline-flex w-full items-center justify-center rounded-md border border-primary text-primary px-5 py-3 text-sm font-semibold hover:bg-primary/5"
-              >
-                Book Demo First
-              </button>
-              <a
-                href={APP_BASE + 'register'}
-                className="inline-flex w-full items-center justify-center rounded-md bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark"
-              >
-                Start Premium
+        <div className="mt-12 grid gap-4 lg:grid-cols-3" data-reveal>
+          {plans.map((plan) => (
+            <article key={plan.name} className={`relative flex min-h-[500px] flex-col overflow-hidden rounded-[26px] border p-7 sm:p-8 ${plan.featured ? 'border-[#10213f] bg-[#10213f] text-white shadow-[0_28px_70px_rgba(16,33,63,.2)]' : 'border-[#d5d6d0] bg-[#f7f6f1] text-[#10213f]'}`}>
+              {plan.featured && (
+                <div className="absolute right-0 top-0 rounded-bl-2xl bg-[#ffb54a] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#10213f]">Best value</div>
+              )}
+              <p className={`text-xs font-bold uppercase tracking-[0.16em] ${plan.featured ? 'text-[#ffb54a]' : 'text-[#737d8c]'}`}>{plan.name}</p>
+              <div className="mt-7 flex items-end gap-2">
+                <p className="text-[clamp(3.2rem,6vw,4.8rem)] font-semibold leading-none tracking-[-0.065em]">{plan.price}</p>
+                {plan.cadence && <p className={`pb-2 text-sm ${plan.featured ? 'text-white/50' : 'text-[#727b8a]'}`}>{plan.cadence}</p>}
+              </div>
+              <p className={`mt-6 min-h-[52px] text-sm leading-6 ${plan.featured ? 'text-white/60' : 'text-[#667184]'}`}>{plan.description}</p>
+              <div className={`my-7 h-px ${plan.featured ? 'bg-white/10' : 'bg-[#d8dad5]'}`} />
+              <ul className="space-y-3.5">
+                {plan.features.map((feature) => (
+                  <li key={feature} className={`flex items-start gap-3 text-sm ${plan.featured ? 'text-white/75' : 'text-[#3d4a60]'}`}>
+                    <span className={`mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full ${plan.featured ? 'bg-[#ffb54a] text-[#10213f]' : 'bg-[#e4e3fa] text-[#5d62e8]'}`}><Check className="h-3 w-3" strokeWidth={3} /></span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <a href={plan.href} target={plan.name === 'Enterprise' ? '_blank' : undefined} rel={plan.name === 'Enterprise' ? 'noreferrer' : undefined} className={`group mt-auto inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold transition-all hover:-translate-y-0.5 ${plan.featured ? 'bg-[#ffb54a] text-[#10213f] hover:bg-[#ffc56e]' : 'bg-[#10213f] text-white hover:bg-[#19365f]'}`}>
+                {plan.action}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
-            </div>
-          </div>
-
-          {/* Basic */}
-          <div className="w-full lg:w-auto lg:max-w-[18rem] rounded-2xl border border-gray-200 p-6 md:p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col min-h-[480px]">
-            <h3 className="text-xl font-semibold text-gray-900">Basic</h3>
-            <div className="mt-2 flex items-end gap-2">
-              <div className="text-4xl font-bold text-gray-900">$9.99</div>
-              <div className="text-sm text-gray-600">/ month</div>
-            </div>
-            <p className="mt-3 text-gray-600">Core access for quick discovery.</p>
-
-            <ul className="mt-5 space-y-2 text-sm text-gray-700">
-              <li className="flex items-start gap-2"><span className="mt-0.5 text-accent">•</span> Search our aggregated RFP database</li>
-              <li className="flex items-start gap-2 text-gray-500"><span className="mt-0.5">•</span> Matching and capability statement not included</li>
-            </ul>
-
-            {/* Removed trial messaging per request */}
-
-            <div className="mt-auto space-y-3">
-              <button
-                onClick={() => window.open('https://app.simplymeet.me/bidbird/bidbird-30-1759797870966', '_blank')}
-                className="inline-flex w-full items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50"
-              >
-                Book Demo
-              </button>
-              <a
-                href={APP_BASE + 'register'}
-                className="inline-flex w-full items-center justify-center rounded-md bg-gray-900 px-5 py-3 text-sm font-semibold text-white hover:bg-gray-800"
-              >
-                Start Basic
-              </a>
-            </div>
-          </div>
-
-          {/* Enterprise */}
-          <div className="w-full lg:w-auto lg:max-w-[18rem] rounded-2xl border border-gray-200 p-6 md:p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col min-h-[480px]">
-            <h3 className="text-xl font-semibold text-gray-900">Enterprise</h3>
-            <div className="mt-2 flex items-end gap-2">
-              <div className="text-4xl font-bold text-gray-900">Custom</div>
-            </div>
-            <p className="mt-3 text-gray-600">For large teams and organizations with custom requirements.</p>
-
-            <ul className="mt-5 space-y-2 text-sm text-gray-700">
-              <li className="flex items-start gap-2"><span className="mt-0.5 text-accent">•</span> Everything in Premium</li>
-              <li className="flex items-start gap-2"><span className="mt-0.5 text-accent">•</span> Dedicated account manager</li>
-              <li className="flex items-start gap-2"><span className="mt-0.5 text-accent">•</span> Custom integrations</li>
-              <li className="flex items-start gap-2"><span className="mt-0.5 text-accent">•</span> Advanced reporting & analytics</li>
-              <li className="flex items-start gap-2"><span className="mt-0.5 text-accent">•</span> Priority support</li>
-            </ul>
-
-            <div className="mt-auto space-y-3">
-              <button
-                onClick={() => window.open('https://app.simplymeet.me/bidbird/bidbird-30-1759797870966', '_blank')}
-                className="inline-flex w-full items-center justify-center rounded-md bg-gray-900 px-5 py-3 text-sm font-semibold text-white hover:bg-gray-800"
-              >
-                Contact Sales
-              </button>
-            </div>
-          </div>
+            </article>
+          ))}
         </div>
-
-        <p className="mt-6 text-center text-xs text-gray-500">Prices in USD. Billed monthly. Cancel anytime.</p>
       </div>
     </section>
   );

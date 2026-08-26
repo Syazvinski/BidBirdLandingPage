@@ -1,10 +1,16 @@
-export const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://api.bidbird.ai/api/v3.1';
+export const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api/v3.1';
+
+export type PublicSearchFilters = {
+  active_only?: boolean;
+};
 
 export type RFPSearchRequest = {
   query: string;
   offset?: number;
   limit?: number;
   has_extracted_details?: boolean;
+  skip_query_expansion?: boolean;
+  filters?: PublicSearchFilters;
 };
 
 export type RFPDocument = {

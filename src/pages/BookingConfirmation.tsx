@@ -5,9 +5,21 @@ const APP_BASE = import.meta.env.VITE_APP_BASE_URL || 'https://app.bidbird.ai/';
 
 export default function BookingConfirmation() {
   useEffect(() => {
+    const previousTitle = document.title;
+    const robotsMeta = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    const previousRobots = robotsMeta?.content;
+
+    document.title = 'Demo scheduled | BidBird';
+    robotsMeta?.setAttribute('content', 'noindex, nofollow');
+
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'conversion', { send_to: 'AW-17630560143/affkCPaUnqsbEI__89ZB' });
     }
+
+    return () => {
+      document.title = previousTitle;
+      if (robotsMeta && previousRobots) robotsMeta.content = previousRobots;
+    };
   }, []);
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center px-4 pt-16">

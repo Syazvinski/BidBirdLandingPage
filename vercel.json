@@ -1,5 +1,9 @@
 {
   "rewrites": [
+    {
+      "source": "/api/v3.1/public/rfps/search",
+      "destination": "https://bidbird-api-v2.bluesmoke-b1bb8489.eastus.azurecontainerapps.io/api/v3.1/public/rfps/search"
+    },
     { "source": "/(.*)", "destination": "/" }
   ]
 }

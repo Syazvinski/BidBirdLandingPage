@@ -1,180 +1,192 @@
 import { useState } from 'react';
+import { ArrowRight, Check, FileSearch, FileText, ScanSearch, Sparkles, ThumbsUp } from 'lucide-react';
+import HeroSearchDemo from './HeroSearchDemo';
 
 const APP_BASE = import.meta.env.VITE_APP_BASE_URL || 'https://app.bidbird.ai/';
+const DEMO_URL = 'https://calendar.app.google/xpkVTmZKzpyx3ZMMA';
 
 type Feature = {
   id: string;
+  eyebrow: string;
   title: string;
   description: string;
   videoSrc: string;
+  icon: typeof ScanSearch;
 };
 
 const features: Feature[] = [
   {
     id: 'search',
-    title: 'Powerful Bid Bird search',
-    description: 'Find exactly what you need fast with smart filters, synonyms, and intent-aware queries across federal and state data—no noise, just relevant results.',
+    eyebrow: '01 · Discover',
+    title: 'Search government contracts without the noise',
+    description: 'Use smart filters, synonyms, and intent-aware queries to find relevant opportunities across federal and state sources.',
     videoSrc: '/search.mp4',
+    icon: ScanSearch,
   },
   {
     id: 'summaries',
-    title: 'Structured RFP summaries',
-    description: 'We parse long RFPs into key facts: scope, requirements, deadlines, set-asides, NAICS/PSC, budget, and evaluation criteria.',
+    eyebrow: '02 · Understand',
+    title: 'Get the point, fast',
+    description: 'Turn dense RFPs into structured summaries of scope, requirements, deadlines, set-asides, budget, and evaluation criteria.',
     videoSrc: '/summaries.mp4',
+    icon: FileText,
   },
   {
     id: 'matching',
-    title: 'Best-in-class AI matching',
-    description: 'Not simple keywords—real large models evaluate fit using your capabilities and RFP content for exceptional match quality.',
+    eyebrow: '03 · Prioritize',
+    title: 'Know where you fit',
+    description: 'BidBird evaluates the full opportunity against your capabilities—not just keywords—so the strongest matches rise to the top.',
     videoSrc: '/ai_matching.mp4',
+    icon: Sparkles,
   },
   {
     id: 'capability',
-    title: 'Auto capability statement',
-    description: 'Provide your business name and we build a polished capability statement we use to power matching and materials.',
+    eyebrow: '04 · Position',
+    title: 'Build your capability profile',
+    description: 'Start with your business name and turn your experience into a polished profile that powers matching and materials.',
     videoSrc: '/capability.mp4',
+    icon: FileSearch,
   },
   {
     id: 'workflow',
-    title: 'Simple pursuit workflow',
-    description: 'Approve high-fit matches, bookmark, and collaborate in a focused pipeline—no sprawling spreadsheets.',
+    eyebrow: '05 · Pursue',
+    title: 'Move the right bids forward',
+    description: 'Approve high-fit matches, bookmark opportunities, and keep your pursuit pipeline focused in one clear workflow.',
     videoSrc: '/like_dislike.mp4',
+    icon: ThumbsUp,
   },
 ];
 
+const tickerItems = ['Government contract opportunities', 'Federal and state RFP search', 'AI fit analysis', 'Structured RFP summaries', 'GovCon pursuit workflow'];
+
 export default function InteractiveFeatureShowcase() {
-  const [activeFeature, setActiveFeature] = useState(features[0]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeFeature = features[activeIndex];
 
   return (
     <>
-    <section className="relative min-h-[50vh] bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 overflow-hidden">
-      {/* Gradient overlay and animated background elements */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
-      <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid lg:grid-cols-2 gap-10 items-center min-h-[35vh]">
-          {/* Left side - Content */}
-          <div className="text-left">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-white">
-            Find Government Contracts You're
-              <span className="bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent"> Built to Win </span>
-            </h1>
-            <p className="mt-6 text-lg sm:text-xl text-gray-200 max-w-2xl">
-            BidBird’s AI instantly pinpoints RFPs where you have the strongest advantage—saving you hundreds of hours by helping you focus on the bids most likely to succeed.
+      <section className="relative min-h-[100svh] overflow-hidden bg-[#071a35] px-2 pb-2 pt-[78px] sm:px-5 sm:pb-6 sm:pt-[100px]">
+        <div className="hero-grid absolute inset-0 opacity-25" />
+        <div className="hero-glow hero-glow-one" />
+        <div className="hero-glow hero-glow-two" />
+
+        <div className="relative mx-auto max-w-[1380px] overflow-hidden rounded-[24px] border border-white/10 bg-[#0a2142]/72 px-4 py-5 shadow-[0_40px_100px_rgba(0,8,24,.35)] sm:rounded-[28px] sm:px-8 sm:py-12 lg:px-12 lg:py-12">
+          <div className="grid min-w-0 items-center gap-5 sm:gap-9 lg:grid-cols-[.92fr_1.08fr] lg:gap-12">
+            <div className="relative z-10 min-w-0 max-w-2xl" data-reveal>
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[.07] px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.13em] text-white/80 sm:mb-5 sm:px-3 sm:py-1.5 sm:text-[10px] sm:tracking-[0.15em]">
+                <span className="h-2 w-2 rounded-full bg-[#70e1bd] shadow-[0_0_0_5px_rgba(112,225,189,.12)]" />
+                AI government contracting software
+              </div>
+              <h1 className="max-w-[680px] text-[clamp(3rem,6vw,5.7rem)] font-semibold leading-[.94] tracking-[-0.062em] text-white">
+                Find the bids your company is <span className="text-[#ffb54a]">built for.</span>
+              </h1>
+              <p className="mt-3 max-w-lg text-sm leading-6 text-[#c3cddd] sm:mt-5 sm:text-lg sm:leading-7">
+                Search federal and state RFPs, understand the requirements, and prioritize your strongest fits—fast.
+              </p>
+
+              <div className="mt-5 grid grid-cols-2 gap-2.5 sm:mt-7 sm:flex sm:gap-3">
+                <a href={DEMO_URL} target="_blank" rel="noreferrer" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#ffb54a] px-2 py-3 text-xs font-bold text-[#071a35] transition-all hover:-translate-y-0.5 hover:bg-[#ffc56e] sm:px-6 sm:py-3.5 sm:text-sm">
+                  Book a demo
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+                <a href={`${APP_BASE}register`} className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/[.06] px-2 py-3 text-xs font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-white/10 sm:px-6 sm:py-3.5 sm:text-sm">
+                  Start free
+                </a>
+              </div>
+              <p className="mt-3 hidden items-center gap-2 text-xs font-medium text-white/55 sm:flex">
+                <Check className="h-3.5 w-3.5 text-[#70e1bd]" />
+                No credit card required
+              </p>
+            </div>
+
+            <div className="relative min-w-0 lg:translate-x-4" data-reveal>
+              <div className="absolute -inset-10 rounded-full bg-[#6e57ff]/20 blur-3xl" />
+              <HeroSearchDemo />
+            </div>
+          </div>
+        </div>
+
+        <div className="relative mx-auto mt-4 hidden max-w-[1380px] overflow-hidden border-y border-white/10 py-3 sm:block">
+          <div className="ticker-track flex min-w-max items-center">
+            {[...tickerItems, ...tickerItems].map((item, index) => (
+              <div key={`${item}-${index}`} className="flex items-center">
+                <span className="px-7 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55 sm:px-10">{item}</span>
+                <span className="h-1.5 w-1.5 rounded-full bg-[#ffb54a]" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="product" className="overflow-hidden bg-[#f7f6f1] px-4 py-20 sm:px-6 sm:py-28 lg:py-36">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid items-end gap-8 lg:grid-cols-2" data-reveal>
+            <div>
+              <p className="section-kicker">See BidBird in action</p>
+              <h2 className="mt-4 max-w-3xl text-[clamp(2.7rem,5vw,5.2rem)] font-semibold leading-[.96] tracking-[-0.055em] text-[#10213f]">
+                From search to shortlist, <span className="text-[#5d62e8]">see it happen.</span>
+              </h2>
+            </div>
+            <p className="max-w-xl text-base leading-7 text-[#657087] lg:justify-self-end lg:text-lg">
+              One clear workflow replaces scattered portals, endless documents, and spreadsheet triage. Explore each step below.
             </p>
-            
-            {/* Prominent CTAs */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <button
-                onClick={() => window.open('https://calendar.app.google/JLvGBnHtjfQcufP49', '_blank')}
-                className="inline-flex items-center rounded-md bg-gradient-to-r from-orange-500 to-yellow-500 px-8 py-4 text-base font-semibold text-white shadow-lg hover:from-orange-600 hover:to-yellow-600 transition-all duration-200 transform hover:scale-105"
-              >
-                Book a Demo
-              </button>
-              <a
-                href={APP_BASE + 'register'}
-                className="inline-flex items-center rounded-md border border-white/30 bg-white/10 backdrop-blur-sm px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-white/20 transition-all duration-200"
-              >
-                Get Started Free
-              </a>
-            </div>
-            <p className="mt-4 text-sm text-gray-300">No credit card required</p>
           </div>
 
-          {/* Right side - Logo/Visual */}
-          <div className="relative flex items-center justify-center">
-            <div className="relative">
-              {/* Animated background circles */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full opacity-20 blur-xl animate-pulse"></div>
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-30 blur-lg animate-pulse delay-500"></div>
-              
-              {/* BidBird Logo */}
-              <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-2xl">
-                <img
-                  src="/bid_bird_inverted.png"
-                  alt="BidBird"
-                  className="w-32 h-32 sm:w-40 sm:h-40 object-contain mx-auto filter drop-shadow-lg"
-                />
-              </div>
-              
-              {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-orange-400 rounded-full animate-bounce delay-300"></div>
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-yellow-400 rounded-full animate-bounce delay-700"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* Feature showcase section with white background */}
-    <section className="relative bg-white py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight text-gray-900">
-            See BidBird in action
-          </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Click through our features to see how BidBird transforms your RFP discovery process
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-12 gap-8 items-start">
-          {/* Video Display */}
-          <div className="lg:col-span-8">
-            <div className="relative">
-              <div className="rounded-2xl bg-white p-4 border border-gray-200 shadow-lg">
-                <div className="aspect-[16/10] w-full overflow-hidden rounded-lg bg-black">
-                  <video
-                    key={activeFeature.videoSrc}
-                    src={activeFeature.videoSrc}
-                    className="h-full w-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
+          <div className="mt-12 grid gap-4 lg:grid-cols-[.72fr_1.28fr] lg:gap-5" data-reveal>
+            <div className="flex gap-2 overflow-x-auto pb-2 lg:grid lg:gap-2 lg:overflow-visible lg:pb-0">
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
+                const isActive = index === activeIndex;
+                return (
+                  <button
+                    key={feature.id}
+                    type="button"
+                    onClick={() => setActiveIndex(index)}
+                    className={`group min-w-[250px] rounded-2xl border p-4 text-left transition-all duration-300 lg:min-w-0 lg:p-5 ${isActive ? 'border-[#10213f] bg-[#10213f] text-white shadow-[0_18px_45px_rgba(16,33,63,.16)]' : 'border-[#d9dcd7] bg-white/70 text-[#10213f] hover:-translate-y-0.5 hover:border-[#aeb5c0] hover:bg-white'}`}
+                    aria-pressed={isActive}
                   >
-                    Your browser does not support the video tag.
-                  </video>
+                    <div className="flex items-center gap-3">
+                      <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${isActive ? 'bg-[#ffb54a] text-[#10213f]' : 'bg-[#ececf9] text-[#5d62e8]'}`}>
+                        <Icon className="h-5 w-5" />
+                      </span>
+                      <div>
+                        <p className={`text-[10px] font-bold uppercase tracking-[0.15em] ${isActive ? 'text-white/50' : 'text-[#8a91a0]'}`}>{feature.eyebrow}</p>
+                        <h3 className="mt-1 text-base font-semibold tracking-[-0.02em]">{feature.title}</h3>
+                      </div>
+                    </div>
+                    <p className={`mt-3 hidden text-sm leading-6 lg:block ${isActive ? 'text-white/65' : 'text-[#687286]'}`}>{feature.description}</p>
+                    <div className="mt-4 h-1 overflow-hidden rounded-full bg-current/10">
+                      <div className={`h-full rounded-full bg-[#ffb54a] transition-all duration-500 ${isActive ? 'w-full' : 'w-0'}`} />
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="relative self-start overflow-hidden rounded-[26px] border border-[#d5d8d3] bg-[#10213f] p-2 shadow-[0_30px_80px_rgba(16,33,63,.14)] sm:p-3">
+              <div className="flex h-10 items-center justify-between px-3 text-white/50">
+                <div className="flex gap-1.5"><span className="h-2 w-2 rounded-full bg-white/25" /><span className="h-2 w-2 rounded-full bg-white/25" /><span className="h-2 w-2 rounded-full bg-white/25" /></div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.16em]">Live product preview</p>
+                <p className="text-[10px] font-semibold">{String(activeIndex + 1).padStart(2, '0')} / {String(features.length).padStart(2, '0')}</p>
+              </div>
+              <div className="aspect-[16/10] overflow-hidden rounded-[18px] bg-white">
+                <video key={activeFeature.videoSrc} src={activeFeature.videoSrc} className="h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div className="grid gap-3 px-3 pb-3 pt-5 text-white sm:grid-cols-[1fr_auto] sm:items-end sm:px-5 sm:pb-5">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#ffb54a]">{activeFeature.eyebrow}</p>
+                  <p className="mt-2 max-w-2xl text-sm leading-6 text-white/70">{activeFeature.description}</p>
                 </div>
-                <div className="p-4 border-t border-gray-100">
-                  <h3 className="text-xl font-semibold text-gray-900">{activeFeature.title}</h3>
-                  <p className="mt-2 text-gray-600">{activeFeature.description}</p>
-                </div>
+                <a href={`${APP_BASE}register`} className="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-[#ffb54a]">
+                  Try it free <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
             </div>
           </div>
-
-          {/* Feature Navigation */}
-          <div className="lg:col-span-4">
-            <div className="space-y-3">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">Features</h2>
-              {features.map((feature) => (
-                <button
-                  key={feature.id}
-                  onClick={() => setActiveFeature(feature)}
-                  className={`w-full text-left p-4 rounded-xl border transition-all ${
-                    activeFeature.id === feature.id
-                      ? 'border-primary bg-primary/5 shadow-sm'
-                      : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
-                  }`}
-                >
-                  <h3 className={`font-semibold ${
-                    activeFeature.id === feature.id ? 'text-primary' : 'text-gray-900'
-                  }`}>
-                    {feature.title}
-                  </h3>
-                  <p className="mt-1 text-sm text-gray-600 line-clamp-2">
-                    {feature.description}
-                  </p>
-                </button>
-              ))}
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 }
