@@ -1,7 +1,7 @@
 import { ArrowRight, Check } from 'lucide-react';
+import { DEMO_BOOKING_PATH } from '../../config/links';
 
 const APP_BASE = import.meta.env.VITE_APP_BASE_URL || 'https://app.bidbird.ai/';
-const DEMO_URL = 'https://calendar.app.google/xpkVTmZKzpyx3ZMMA';
 
 const plans = [
   {
@@ -30,7 +30,7 @@ const plans = [
     description: 'A tailored setup for larger teams and custom requirements.',
     features: ['Everything in Premium', 'Dedicated account manager', 'Custom integrations', 'Priority support'],
     action: 'Contact sales',
-    href: DEMO_URL,
+    href: DEMO_BOOKING_PATH,
   },
 ];
 
@@ -67,7 +67,7 @@ export default function PricingSection() {
                   </li>
                 ))}
               </ul>
-              <a href={plan.href} target={plan.name === 'Enterprise' ? '_blank' : undefined} rel={plan.name === 'Enterprise' ? 'noreferrer' : undefined} className={`group mt-auto inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold transition-all hover:-translate-y-0.5 ${plan.featured ? 'bg-[#ffb54a] text-[#10213f] hover:bg-[#ffc56e]' : 'bg-[#10213f] text-white hover:bg-[#19365f]'}`}>
+              <a href={plan.href} className={`group mt-auto inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold transition-all hover:-translate-y-0.5 ${plan.featured ? 'bg-[#ffb54a] text-[#10213f] hover:bg-[#ffc56e]' : 'bg-[#10213f] text-white hover:bg-[#19365f]'}`}>
                 {plan.action}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>

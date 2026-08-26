@@ -27,10 +27,10 @@ export default function Navbar() {
           </Link>
 
           <nav className="hidden items-center gap-7 text-sm font-medium text-white/70 md:flex" aria-label="Main navigation">
-            <a href="#product" className="transition-colors hover:text-white">Product</a>
-            <a href="#how-it-works" className="transition-colors hover:text-white">How it works</a>
-            <a href="#govcon-guide" className="transition-colors hover:text-white">GovCon guide</a>
-            <a href="#pricing" className="transition-colors hover:text-white">Pricing</a>
+            <a href="/#product" className="transition-colors hover:text-white">Product</a>
+            <a href="/#how-it-works" className="transition-colors hover:text-white">How it works</a>
+            <a href="/#govcon-guide" className="transition-colors hover:text-white">GovCon guide</a>
+            <a href="/#pricing" className="transition-colors hover:text-white">Pricing</a>
           </nav>
 
           <div className="hidden items-center gap-3 md:flex">
@@ -55,7 +55,7 @@ export default function Navbar() {
         {open && (
           <div className="border-t border-white/10 px-4 pb-4 pt-3 md:hidden">
             <nav className="grid gap-1 text-sm font-medium text-white/80" aria-label="Mobile navigation">
-              {[['Product', '#product'], ['How it works', '#how-it-works'], ['GovCon guide', '#govcon-guide'], ['Pricing', '#pricing']].map(([label, href]) => (
+              {[['Product', '/#product'], ['How it works', '/#how-it-works'], ['GovCon guide', '/#govcon-guide'], ['Pricing', '/#pricing']].map(([label, href]) => (
                 <a key={href} href={href} onClick={() => setOpen(false)} className="rounded-xl px-3 py-3 hover:bg-white/10 hover:text-white">{label}</a>
               ))}
             </nav>

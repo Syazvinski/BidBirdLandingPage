@@ -1,7 +1,7 @@
 import { ArrowRight, Check } from 'lucide-react';
+import { DEMO_BOOKING_PATH } from '../../config/links';
 
 const APP_BASE = import.meta.env.VITE_APP_BASE_URL || 'https://app.bidbird.ai/';
-const DEMO_URL = 'https://calendar.app.google/xpkVTmZKzpyx3ZMMA';
 
 export default function CTA() {
   return (
@@ -17,7 +17,7 @@ export default function CTA() {
             <a href={`${APP_BASE}register`} className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#ffb54a] px-6 py-3.5 text-sm font-bold text-[#10213f] transition-all hover:-translate-y-0.5 hover:bg-[#ffc56e]">
               Start free <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
-            <a href={DEMO_URL} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-xl border border-white/25 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-white/15">Book a demo</a>
+            <a href={DEMO_BOOKING_PATH} className="inline-flex items-center justify-center rounded-xl border border-white/25 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-white/15">Book a demo</a>
           </div>
           <p className="mt-5 inline-flex items-center gap-2 text-xs font-medium text-white/55"><Check className="h-3.5 w-3.5" /> No credit card required</p>
         </div>

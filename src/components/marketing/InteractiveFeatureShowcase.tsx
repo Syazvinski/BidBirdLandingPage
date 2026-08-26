@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { ArrowRight, Check, FileSearch, FileText, ScanSearch, Sparkles, ThumbsUp } from 'lucide-react';
 import HeroSearchDemo from './HeroSearchDemo';
+import { DEMO_BOOKING_PATH } from '../../config/links';
 
 const APP_BASE = import.meta.env.VITE_APP_BASE_URL || 'https://app.bidbird.ai/';
-const DEMO_URL = 'https://calendar.app.google/xpkVTmZKzpyx3ZMMA';
 
 type Feature = {
   id: string;
@@ -85,7 +85,7 @@ export default function InteractiveFeatureShowcase() {
               </p>
 
               <div className="mt-5 grid grid-cols-2 gap-2.5 sm:mt-7 sm:flex sm:gap-3">
-                <a href={DEMO_URL} target="_blank" rel="noreferrer" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#ffb54a] px-2 py-3 text-xs font-bold text-[#071a35] transition-all hover:-translate-y-0.5 hover:bg-[#ffc56e] sm:px-6 sm:py-3.5 sm:text-sm">
+                <a href={DEMO_BOOKING_PATH} className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#ffb54a] px-2 py-3 text-xs font-bold text-[#071a35] transition-all hover:-translate-y-0.5 hover:bg-[#ffc56e] sm:px-6 sm:py-3.5 sm:text-sm">
                   Book a demo
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>

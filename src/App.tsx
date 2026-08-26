@@ -8,6 +8,7 @@ import PricingSection from './components/marketing/PricingSection';
 import CTA from './components/marketing/CTA';
 import Footer from './components/marketing/Footer';
 import BookingConfirmation from './pages/BookingConfirmation';
+import BookDemo from './pages/BookDemo';
 
 function Home() {
   useEffect(() => {
@@ -59,6 +60,7 @@ export default function App() {
               <main>
                 <Routes>
                   <Route path="/" element={<Home />} />
+                  <Route path="/book-demo" element={<BookDemo />} />
                 </Routes>
               </main>
               <Footer />

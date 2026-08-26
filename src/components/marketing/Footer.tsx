@@ -1,8 +1,8 @@
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { DEMO_BOOKING_PATH } from '../../config/links';
 
 const APP_BASE = import.meta.env.VITE_APP_BASE_URL || 'https://app.bidbird.ai/';
-const DEMO_URL = 'https://calendar.app.google/xpkVTmZKzpyx3ZMMA';
 
 export default function Footer() {
   return (
@@ -20,10 +20,10 @@ export default function Footer() {
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/35">Explore</p>
             <div className="mt-5 grid gap-3 text-sm text-white/65">
-              <a href="#product" className="hover:text-white">Product</a>
-              <a href="#how-it-works" className="hover:text-white">How it works</a>
-              <a href="#govcon-guide" className="hover:text-white">GovCon guide</a>
-              <a href="#pricing" className="hover:text-white">Pricing</a>
+              <a href="/#product" className="hover:text-white">Product</a>
+              <a href="/#how-it-works" className="hover:text-white">How it works</a>
+              <a href="/#govcon-guide" className="hover:text-white">GovCon guide</a>
+              <a href="/#pricing" className="hover:text-white">Pricing</a>
             </div>
           </div>
 
@@ -32,7 +32,7 @@ export default function Footer() {
             <div className="mt-5 grid gap-3 text-sm text-white/65">
               <a href={`${APP_BASE}register`} className="inline-flex items-center gap-1.5 hover:text-white">Create an account <ArrowUpRight className="h-3.5 w-3.5" /></a>
               <a href={`${APP_BASE}login`} className="hover:text-white">Sign in</a>
-              <a href={DEMO_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-white">Book a demo <ArrowUpRight className="h-3.5 w-3.5" /></a>
+              <a href={DEMO_BOOKING_PATH} className="inline-flex items-center gap-1.5 hover:text-white">Book a demo <ArrowUpRight className="h-3.5 w-3.5" /></a>
             </div>
           </div>
         </div>
