@@ -163,11 +163,11 @@ export default function HeroSearchDemo() {
   const solicitationNumber = typeof additionalInfo?.solicitation_number === 'string' ? additionalInfo.solicitation_number : null;
 
   return (
-    <div className="relative min-h-[350px] overflow-hidden rounded-[24px] border border-white/10 bg-[#071629] p-4 shadow-[0_32px_90px_rgba(0,0,0,.4)] sm:min-h-[430px] sm:rounded-[28px] sm:p-6">
+    <div className="relative h-full min-h-[350px] overflow-hidden rounded-[24px] border border-white/10 bg-[#071629] p-4 shadow-[0_32px_90px_rgba(0,0,0,.4)] sm:min-h-[430px] sm:rounded-[28px] sm:p-6">
       <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[#665ee8]/20 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-28 -left-20 h-56 w-56 rounded-full bg-[#123f67]/45 blur-3xl" />
 
-      <div className="relative flex min-h-[316px] flex-col sm:min-h-[388px]">
+      <div className="relative flex h-full min-h-[316px] flex-col sm:min-h-[388px]">
         <div className={`flex-1 ${!hasSearched ? 'flex flex-col justify-center' : ''}`}>
           {!hasSearched && (
             <h2 aria-label={TYPEWRITER_PROMPT} className="min-h-8 text-center text-[clamp(1.3rem,2.5vw,2rem)] font-medium tracking-[-0.035em] text-white sm:min-h-9">

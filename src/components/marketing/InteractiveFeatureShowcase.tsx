@@ -65,14 +65,14 @@ export default function InteractiveFeatureShowcase() {
 
   return (
     <>
-      <section className="relative min-h-[100svh] overflow-hidden bg-[#071a35] px-2 pb-2 pt-[78px] sm:px-5 sm:pb-6 sm:pt-[100px]">
+      <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#071a35] px-2 pb-2 pt-[78px] sm:px-5 sm:pb-6 sm:pt-[100px]">
         <div className="hero-grid absolute inset-0 opacity-25" />
         <div className="hero-glow hero-glow-one" />
         <div className="hero-glow hero-glow-two" />
 
-        <div className="relative mx-auto max-w-[1380px] overflow-hidden rounded-[24px] border border-white/10 bg-[#0a2142]/72 px-4 py-5 shadow-[0_40px_100px_rgba(0,8,24,.35)] sm:rounded-[28px] sm:px-8 sm:py-12 lg:px-12 lg:py-12">
-          <div className="grid min-w-0 items-center gap-5 sm:gap-9 lg:grid-cols-[.92fr_1.08fr] lg:gap-12">
-            <div className="relative z-10 min-w-0 max-w-2xl" data-reveal>
+        <div className="relative mx-auto flex w-full max-w-[1380px] flex-1 overflow-hidden rounded-[24px] border border-white/10 bg-[#0a2142]/72 px-4 py-5 shadow-[0_40px_100px_rgba(0,8,24,.35)] sm:rounded-[28px] sm:px-8 sm:py-12 lg:px-12 lg:py-12">
+          <div className="grid w-full min-w-0 items-center gap-5 sm:gap-9 lg:grid-cols-[.92fr_1.08fr] lg:gap-12">
+            <div className="relative z-10 min-w-0 max-w-2xl lg:flex lg:h-full lg:flex-col lg:justify-center" data-reveal>
               <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[.07] px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.13em] text-white/80 sm:mb-5 sm:px-3 sm:py-1.5 sm:text-[10px] sm:tracking-[0.15em]">
                 <span className="h-2 w-2 rounded-full bg-[#70e1bd] shadow-[0_0_0_5px_rgba(112,225,189,.12)]" />
                 AI government contracting software
@@ -99,7 +99,7 @@ export default function InteractiveFeatureShowcase() {
               </p>
             </div>
 
-            <div className="relative min-w-0 lg:translate-x-4" data-reveal>
+            <div className="relative h-full min-w-0 lg:translate-x-4" data-reveal>
               <div className="absolute -inset-10 rounded-full bg-[#6e57ff]/20 blur-3xl" />
               <HeroSearchDemo />
             </div>
