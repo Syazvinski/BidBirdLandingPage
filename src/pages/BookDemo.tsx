@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ArrowUpRight, CalendarDays, Check, Clock3, SearchCheck, Sparkles } from 'lucide-react';
+import { CalendarDays, Check, Clock3, SearchCheck, Sparkles } from 'lucide-react';
 import { HUBSPOT_DEMO_MEETING_URL } from '../config/links';
 import { listenForDemoBookings } from '../services/analytics';
 
@@ -72,16 +72,6 @@ export default function BookDemo() {
                 <p className="mt-0.5 text-[11px] text-white/50 sm:text-xs">30 minutes · Times shown in your local time zone</p>
               </div>
             </div>
-            <a
-              href={HUBSPOT_DEMO_MEETING_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-white/15 px-3 py-2 text-[11px] font-bold text-white/75 transition-colors hover:bg-white/10 hover:text-white sm:text-xs"
-            >
-              <span className="hidden sm:inline">Open in a new tab</span>
-              <span className="sm:hidden">Open</span>
-              <ArrowUpRight className="h-3.5 w-3.5" />
-            </a>
           </div>
 
           <div
