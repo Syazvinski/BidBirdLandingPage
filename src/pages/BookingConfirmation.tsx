@@ -12,10 +12,6 @@ export default function BookingConfirmation() {
     document.title = 'Demo scheduled | BidBird';
     robotsMeta?.setAttribute('content', 'noindex, nofollow');
 
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'conversion', { send_to: 'AW-17630560143/affkCPaUnqsbEI__89ZB' });
-    }
-
     return () => {
       document.title = previousTitle;
       if (robotsMeta && previousRobots) robotsMeta.content = previousRobots;

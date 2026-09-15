@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { ArrowUpRight, CalendarDays, Check, Clock3, SearchCheck, Sparkles } from 'lucide-react';
-import { GOOGLE_CALENDAR_BOOKING_URL, GOOGLE_CALENDAR_EMBED_URL } from '../config/links';
+import { HUBSPOT_DEMO_MEETING_URL } from '../config/links';
+import { listenForDemoBookings } from '../services/analytics';
 
 const PAGE_TITLE = 'Book a BidBird demo | AI GovCon software';
 const PAGE_DESCRIPTION = 'Schedule a 30-minute BidBird demo to see AI-powered government contract search, RFP summaries, and capability matching in action.';
 const PAGE_URL = 'https://www.bidbird.ai/book-demo';
+const MEETINGS_EMBED_SCRIPT = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
 
 const updateMeta = (selector: string, content: string) => {
   const element = document.querySelector<HTMLMetaElement>(selector);
@@ -40,6 +42,19 @@ export default function BookDemo() {
     };
   }, []);
 
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = MEETINGS_EMBED_SCRIPT;
+    script.async = true;
+    document.body.appendChild(script);
+    const stopListening = listenForDemoBookings();
+
+    return () => {
+      stopListening();
+      script.remove();
+    };
+  }, []);
+
   return (
     <div className="overflow-hidden bg-[#f7f6f1]">
       <section className="relative overflow-hidden bg-[#071a35] px-3 pb-9 pt-[92px] sm:px-5 sm:pb-12 sm:pt-[104px]">
@@ -58,7 +73,7 @@ export default function BookDemo() {
               </div>
             </div>
             <a
-              href={GOOGLE_CALENDAR_BOOKING_URL}
+              href={HUBSPOT_DEMO_MEETING_URL}
               target="_blank"
               rel="noreferrer"
               className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-white/15 px-3 py-2 text-[11px] font-bold text-white/75 transition-colors hover:bg-white/10 hover:text-white sm:text-xs"
@@ -69,17 +84,14 @@ export default function BookDemo() {
             </a>
           </div>
 
-          <iframe
-            src={GOOGLE_CALENDAR_EMBED_URL}
-            title="Book a BidBird product demo"
-            className="block h-[760px] w-full bg-white sm:h-[calc(100svh-180px)] sm:min-h-[680px]"
-            loading="eager"
-            frameBorder="0"
+          <div
+            className="meetings-iframe-container min-h-[680px] bg-white"
+            data-src={`${HUBSPOT_DEMO_MEETING_URL}?embed=true`}
           />
         </div>
 
         <p className="relative mx-auto mt-4 max-w-2xl text-center text-[11px] leading-5 text-white/40 sm:text-xs">
-          Google Calendar securely handles availability and confirmations. You’ll receive the meeting details by email immediately after booking.
+          HubSpot securely handles availability and confirmations. You’ll receive the meeting details by email immediately after booking.
         </p>
       </section>
 

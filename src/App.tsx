@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/marketing/Navbar';
 import InteractiveFeatureShowcase from './components/marketing/InteractiveFeatureShowcase';
 import ValueProps from './components/marketing/ValueProps';
@@ -9,6 +9,7 @@ import CTA from './components/marketing/CTA';
 import Footer from './components/marketing/Footer';
 import BookingConfirmation from './pages/BookingConfirmation';
 import BookDemo from './pages/BookDemo';
+import { trackHubSpotPageView } from './services/analytics';
 
 function Home() {
   useEffect(() => {
@@ -48,6 +49,17 @@ function Home() {
 }
 
 export default function App() {
+  const location = useLocation();
+  const trackedPath = useRef(`${location.pathname}${location.search}`);
+
+  useEffect(() => {
+    // HubSpot records the first page load itself; client-side route changes need an explicit page view.
+    const path = `${location.pathname}${location.search}`;
+    if (path === trackedPath.current) return;
+    trackedPath.current = path;
+    trackHubSpotPageView(path);
+  }, [location.pathname, location.search]);
+
   return (
     <div className="min-h-screen bg-[#f7f6f1] text-[#10213f]">
       <Routes>
